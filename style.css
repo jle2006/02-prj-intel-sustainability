@@ -107,39 +107,22 @@ header p {
   color: white;
 }
 
-.content h2.year {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  opacity: 1;
-  transition: opacity 0.4s ease;
+/* Only show the year by default */
+.content .year {
+  display: block;
 }
 
-.content h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+/* Hide the description by default */
+.content .description {
+  display: none;
 }
 
-.content p.description {
-  font-size: 0.95rem;
-  opacity: 0;
-  height: 0;
-  overflow: hidden;
-  transition: opacity 0.4s ease, height 0.4s ease;
+/* When hovering over any timeline card, show the description and hide the year */
+.timeline-item:hover .content .year {
+  display: none;
 }
 
-/* ===== Hoverable Text for Images ===== */
-.hover-image {
-  color: #aee0ff;
-  cursor: pointer;
-  position: relative;
+.timeline-item:hover .content .description {
+  display: block;
 }
 
-.hover-image:hover {
-  text-decoration: underline;
-}
-
-/* ===== Hover Swap Logic ===== */
-.hover-image:hover ~ .description {
-  opacity: 1;
-  height: auto;
-}
