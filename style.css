@@ -14,7 +14,7 @@ body {
 
 /* Header */
 header {
-  background-color: #fff;
+  background-color: #f5f7fa; /* slightly darker than white for SVG visibility */
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   padding: 2rem 1rem;
 }
