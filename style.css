@@ -1,4 +1,4 @@
-/* Base Styles */
+/* ===== Base Reset ===== */
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +12,7 @@ body {
   line-height: 1.6;
 }
 
-/* Banner/Header */
+/* ===== Header / Banner ===== */
 header {
   background-color: #0071c5; /* Intel blue */
   padding: 2rem 1rem;
@@ -43,7 +43,7 @@ header p {
   margin: 0 auto;
 }
 
-/* Timeline Layout */
+/* ===== Timeline Container ===== */
 .timeline {
   position: relative;
   max-width: 900px;
@@ -51,6 +51,12 @@ header p {
   padding: 0 1rem;
 }
 
+/* Remove vertical line */
+.timeline::after {
+  content: none;
+}
+
+/* ===== Timeline Items ===== */
 .timeline-item {
   padding: 1rem 2rem;
   position: relative;
@@ -73,7 +79,7 @@ header p {
   left: 50%;
 }
 
-/* Circles */
+/* ===== Milestone Circles ===== */
 .timeline-item::before {
   content: '';
   position: absolute;
@@ -94,7 +100,7 @@ header p {
   left: -10px;
 }
 
-/* Card Content */
+/* ===== Card Content ===== */
 .content {
   padding: 1rem;
   background-color: #0071c5;
@@ -112,9 +118,13 @@ header p {
   margin-bottom: 0.5rem;
 }
 
-/* Hoverable text */
+.content p {
+  font-size: 0.95rem;
+}
+
+/* ===== Hoverable Text for Images ===== */
 .hover-image {
-  color: #aee0ff;
+  color: #aee0ff; /* lighter blue for emphasis */
   cursor: pointer;
   position: relative;
 }
@@ -123,7 +133,7 @@ header p {
   text-decoration: underline;
 }
 
-/* Image preview popup */
+/* ===== Image Preview Popup ===== */
 .img-preview {
   position: absolute;
   background: white;
@@ -139,7 +149,7 @@ header p {
   display: block;
 }
 
-/* Footer */
+/* ===== Footer ===== */
 footer {
   text-align: center;
   padding: 1rem;
@@ -147,7 +157,7 @@ footer {
   color: #666;
 }
 
-/* Responsive */
+/* ===== Responsive Layout ===== */
 @media screen and (max-width: 768px) {
   .timeline-item {
     width: 100%;
