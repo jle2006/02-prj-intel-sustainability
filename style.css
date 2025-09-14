@@ -107,9 +107,10 @@ header p {
   color: white;
 }
 
-.content h2 {
+.content h2.year {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
+  opacity: 1;
   transition: opacity 0.4s ease;
 }
 
@@ -118,8 +119,12 @@ header p {
   margin-bottom: 0.5rem;
 }
 
-.content p {
+.content p.description {
   font-size: 0.95rem;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 0.4s ease, height 0.4s ease;
 }
 
 /* ===== Hoverable Text for Images ===== */
@@ -133,9 +138,8 @@ header p {
   text-decoration: underline;
 }
 
-/* ===== Reveal Description on Hover ===== */
-.reveal-on-hover {
-  display: none;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.4
+/* ===== Hover Swap Logic ===== */
+.hover-image:hover ~ .description {
+  opacity: 1;
+  height: auto;
+}
