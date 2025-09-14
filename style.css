@@ -61,19 +61,9 @@ header p {
   padding: 1rem 2rem;
   position: relative;
   width: 50%;
-  opacity: 1; /* failsafe: visible by default */
-  transform: none; /* failsafe: no offset by default */
-  transition: all 0.6s ease-out;
-}
-
-.timeline-item.animate {
   opacity: 0;
   transform: translateY(40px);
-}
-
-.timeline-item.show {
-  opacity: 1;
-  transform: translateY(0);
+  animation: fadeUp 0.8s ease forwards;
 }
 
 .timeline-item.left {
@@ -82,6 +72,25 @@ header p {
 
 .timeline-item.right {
   left: 50%;
+}
+
+/* Stagger animation delays */
+.timeline-item:nth-child(1) { animation-delay: 0.2s; }
+.timeline-item:nth-child(2) { animation-delay: 0.4s; }
+.timeline-item:nth-child(3) { animation-delay: 0.6s; }
+.timeline-item:nth-child(4) { animation-delay: 0.8s; }
+.timeline-item:nth-child(5) { animation-delay: 1s; }
+.timeline-item:nth-child(6) { animation-delay: 1.2s; }
+.timeline-item:nth-child(7) { animation-delay: 1.4s; }
+.timeline-item:nth-child(8) { animation-delay: 1.6s; }
+.timeline-item:nth-child(9) { animation-delay: 1.8s; }
+
+/* Animation keyframes */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ===== Milestone Circles ===== */
@@ -127,31 +136,33 @@ header p {
   font-size: 0.95rem;
 }
 
-/* ===== Hoverable Text for Images ===== */
+/* ===== Pure CSS Hover Image ===== */
 .hover-image {
-  color: #aee0ff; /* lighter blue for emphasis */
+  color: #aee0ff;
   cursor: pointer;
   position: relative;
 }
 
-.hover-image:hover {
-  text-decoration: underline;
-}
-
-/* ===== Image Preview Popup ===== */
-.img-preview {
+.hover-image::after {
+  content: '';
   position: absolute;
-  background: white;
+  top: 120%;
+  left: 0;
+  width: 200px;
+  height: 150px;
+  background-image: var(--img);
+  background-size: cover;
+  background-position: center;
   border: 2px solid #0071c5;
-  padding: 5px;
   border-radius: 4px;
-  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
 }
 
-.img-preview img {
-  max-width: 200px;
-  height: auto;
-  display: block;
+.hover-image:hover::after {
+  opacity: 1;
 }
 
 /* ===== Footer ===== */
