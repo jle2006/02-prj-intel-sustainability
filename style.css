@@ -134,6 +134,31 @@ header p {
   position: relative;
 }
 
+/* ===== Timeline Hover Reveal ===== */
+.timeline-item .content p {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease, max-height 0.4s ease, transform 0.4s ease;
+}
+
+.timeline-item .content h2 {
+  transition: opacity 0.4s ease;
+}
+
+/* Hovering over the .hover-image triggers sibling effects */
+.hover-image:hover ~ p {
+  opacity: 1;
+  max-height: 200px; /* Adjust based on content length */
+  transform: translateY(0);
+}
+
+.hover-image:hover ~ h2 {
+  opacity: 0.3;
+}
+
+
 .hover-image:hover {
   text-decoration: underline;
 }
