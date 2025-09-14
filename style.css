@@ -12,18 +12,18 @@ body {
   line-height: 1.6;
 }
 
-/* Header */
+/* Banner/Header */
 header {
-  background-color: #f5f7fa; /* slightly darker than white for SVG visibility */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: #0071c5; /* Intel blue */
   padding: 2rem 1rem;
+  color: white;
+  text-align: center;
 }
 
 .header-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
 }
 
 .intel-logo {
@@ -35,14 +35,12 @@ header {
 header h1 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
-  color: #0071c5;
 }
 
 header p {
   font-size: 1rem;
   max-width: 600px;
   margin: 0 auto;
-  color: #555;
 }
 
 /* Timeline Layout */
@@ -53,12 +51,6 @@ header p {
   padding: 0 1rem;
 }
 
-/* Removed vertical line */
-.timeline::after {
-  content: none;
-}
-
-/* Timeline Items */
 .timeline-item {
   padding: 1rem 2rem;
   position: relative;
@@ -106,7 +98,6 @@ header p {
 .content {
   padding: 1rem;
   background-color: #0071c5;
-  position: relative;
   border-radius: 6px;
   color: white;
 }
@@ -121,8 +112,31 @@ header p {
   margin-bottom: 0.5rem;
 }
 
-.content p {
-  font-size: 0.95rem;
+/* Hoverable text */
+.hover-image {
+  color: #aee0ff;
+  cursor: pointer;
+  position: relative;
+}
+
+.hover-image:hover {
+  text-decoration: underline;
+}
+
+/* Image preview popup */
+.img-preview {
+  position: absolute;
+  background: white;
+  border: 2px solid #0071c5;
+  padding: 5px;
+  border-radius: 4px;
+  z-index: 999;
+}
+
+.img-preview img {
+  max-width: 200px;
+  height: auto;
+  display: block;
 }
 
 /* Footer */

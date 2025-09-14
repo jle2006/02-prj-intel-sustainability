@@ -4,13 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intel: Sustainability Through the Ages</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
 <header>
   <div class="header-content">
-    <!-- Update the src path if your logo is in a folder -->
     <img src="img/intel-header-logo.svg" alt="Intel Logo" class="intel-logo" />
     <h1>Sustainability Through the Ages</h1>
     <p>
@@ -22,11 +21,10 @@
 </header>
 
 <section class="timeline">
-  
   <div class="timeline-item left">
     <div class="content">
       <h2>1968</h2>
-      <h3>Intel Founded</h3>
+      <h3><span class="hover-image" data-img="img/1968.jpg">Intel Founded</span></h3>
       <p>Robert Noyce and Gordon Moore rename NM Electronics to Intel Corporation...</p>
     </div>
   </div>
@@ -34,67 +32,12 @@
   <div class="timeline-item right">
     <div class="content">
       <h2>1971</h2>
-      <h3>First Microprocessor</h3>
+      <h3><span class="hover-image" data-img="img/1971.jpg">First Microprocessor</span></h3>
       <p>Intel debuts the 4004, the world's first commercial microprocessor...</p>
     </div>
   </div>
 
-  <div class="timeline-item left">
-    <div class="content">
-      <h2>1978</h2>
-      <h3>8086 Processor</h3>
-      <p>Launch of the 8086 processor, establishing the x86 architecture...</p>
-    </div>
-  </div>
-
-  <div class="timeline-item right">
-    <div class="content">
-      <h2>1985</h2>
-      <h3>386 Processor</h3>
-      <p>Intel introduces the 386 processor with 32-bit architecture...</p>
-    </div>
-  </div>
-
-  <div class="timeline-item left">
-    <div class="content">
-      <h2>2006</h2>
-      <h3>Peak GHG Emissions</h3>
-      <p>Intel hits its highest annual greenhouse gas emissions...</p>
-    </div>
-  </div>
-
-  <div class="timeline-item right">
-    <div class="content">
-      <h2>2020</h2>
-      <h3>RISE Strategy</h3>
-      <p>Intel launches its RISE strategy and 2030 goals...</p>
-    </div>
-  </div>
-
-  <div class="timeline-item left">
-    <div class="content">
-      <h2>2022</h2>
-      <h3>Net-Zero By 2040</h3>
-      <p>Intel commits to net-zero greenhouse gas emissions by 2040...</p>
-    </div>
-  </div>
-
-  <div class="timeline-item right">
-    <div class="content">
-      <h2>2023</h2>
-      <h3>Renewable Electricity</h3>
-      <p>Intel achieves 99% renewable electricity usage worldwide...</p>
-    </div>
-  </div>
-
-  <div class="timeline-item left">
-    <div class="content">
-      <h2>2024</h2>
-      <h3>Sustainability Summit</h3>
-      <p>Intel hosts its first Sustainability Summit...</p>
-    </div>
-  </div>
-
+  <!-- Add more timeline items as needed -->
 </section>
 
 <footer>
@@ -102,17 +45,24 @@
 </footer>
 
 <script>
-  const items = document.querySelectorAll('.timeline-item');
+  // Show image on hover
+  document.querySelectorAll('.hover-image').forEach(item => {
+    item.addEventListener('mouseenter', function() {
+      const imgSrc = this.getAttribute('data-img');
+      let imgPreview = document.createElement('div');
+      imgPreview.className = 'img-preview';
+      imgPreview.innerHTML = `<img src="${imgSrc}" alt="Preview">`;
+      document.body.appendChild(imgPreview);
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      }
+      const rect = this.getBoundingClientRect();
+      imgPreview.style.top = rect.bottom + window.scrollY + 'px';
+      imgPreview.style.left = rect.left + 'px';
     });
-  }, { threshold: 0.2 });
 
-  items.forEach(item => observer.observe(item));
+    item.addEventListener('mouseleave', function() {
+      document.querySelectorAll('.img-preview').forEach(preview => preview.remove());
+    });
+  });
 </script>
 
 </body>
