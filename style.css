@@ -125,4 +125,16 @@ header p {
 .timeline-item:hover .content .description {
   display: block;
 }
+.timeline-img {
+  display: none;
+  width: 100%;
+  max-width: 200px;
+  margin: 0.5rem 0;
+  opacity: 0.7; /* semi-transparent */
+  border-radius: 4px;
+  transition: opacity 0.3s;
+}
 
+.timeline-item:hover .timeline-img {
+  display: block;
+}
